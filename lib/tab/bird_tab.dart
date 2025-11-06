@@ -1,40 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:donut_app/utils/horse_tile.dart';
+import 'package:donut_app/utils/bird_tile.dart';
 import 'package:donut_app/models/cart.dart';
 import 'package:donut_app/models/product.dart';
 
-class PancakeTab extends StatelessWidget {
-  PancakeTab({super.key});
+class BirdTab extends StatelessWidget {
+  BirdTab({super.key});
 
-  // Lista de pancakes disponibles
-  final List<List<dynamic>> pancakesOnSale = [
+  // Lista de aves disponibles en venta
+  final List<List<dynamic>> birdsOnSale = [
     [
-      'Arándano',
-      80.0,
-      Colors.brown,
-      'lib/images/arandanos.png',
-      'Pancake House',
-    ],
-    [
-      'Clásico',
-      90.0,
-      Colors.deepOrange,
-      'lib/images/clasic.png',
-      'Sweet Stack',
-    ],
-    [
-      'Mantequilla',
-      95.0,
+      'Canario',
+      250.0,
       Colors.yellow,
-      'lib/images/mantequilla.png',
-      'Breakfast & Co.',
+      'lib/images/canary.jpeg',
+      'Happy Wings',
     ],
     [
-      'Strawberry',
-      100.0,
-      Colors.purple,
-      'lib/images/stawberry_pancake.png',
-      'Morning Joy',
+      'Perico',
+      300.0,
+      Colors.green,
+      'lib/images/parrot.jpeg',
+      'Tropical Pets',
+    ],
+    [
+      'Cotorra',
+      280.0,
+      Colors.blue,
+      'lib/images/cotorra.jpeg',
+      'Feather Friends',
+    ],
+    [
+      'Loro Amazónico',
+      500.0,
+      Colors.red,
+      'lib/images/amazon_parrot.jpg',
+      'Exotic Birds',
     ],
   ];
 
@@ -54,29 +54,29 @@ class PancakeTab extends StatelessWidget {
             mainAxisSpacing: 12,
             childAspectRatio: aspectRatio,
           ),
-          itemCount: pancakesOnSale.length,
+          itemCount: birdsOnSale.length,
           itemBuilder: (context, index) {
-            final pancake = pancakesOnSale[index];
+            final bird = birdsOnSale[index];
 
-            return PancakeTile(
-              pancakeFlavor: pancake[0],
-              pancakePrice: pancake[1].toString(),
-              pancakeColor: pancake[2],
-              pancakeImagePath: pancake[3],
-              pancakeProvider: pancake[4],
+            return BirdTile(
+              birdName: bird[0],
+              birdPrice: bird[1].toString(),
+              birdColor: bird[2],
+              birdImagePath: bird[3],
+              birdProvider: bird[4],
               // Función para agregar al carrito
               onAddToCart: () {
                 final product = Product(
-                  name: pancake[0],
-                  price: pancake[1],
-                  imagePath: pancake[3],
+                  name: bird[0],
+                  price: bird[1],
+                  imagePath: bird[3],
                 );
 
                 Cart.addItem(product);
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('${pancake[0]} added to cart'),
+                    content: Text('${bird[0]} added to cart'),
                     duration: const Duration(seconds: 1),
                   ),
                 );

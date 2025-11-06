@@ -45,9 +45,9 @@ class _HomepageState extends State<Homepage> {
               padding: EdgeInsets.only(left: 24.0),
               child: Row(
                 children: [
-                  Text('I want to  ', style: TextStyle(fontSize: 24)),
+                  Text('I want ', style: TextStyle(fontSize: 24)),
                   Text(
-                    'Eat',
+                    'a friend',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -66,11 +66,11 @@ class _HomepageState extends State<Homepage> {
             Expanded(
               child: TabBarView(
                 children: [
-                  DonutTab(),
-                  BurgerTab(),
-                  SmoothieTab(),
-                  PancakeTab(),
-                  PizzaTab(),
+                  CatTab(),
+                  DogTab(),
+                  BirdTab(),
+                  HorseTab(),
+                  MouseTab(),
                 ],
               ),
             ),
@@ -93,7 +93,7 @@ class _HomepageState extends State<Homepage> {
                           ),
                         ),
                         const Text(
-                          'Delivery Charges Included',
+                          'Adopt !',
                           style: TextStyle(fontSize: 12),
                         ),
                       ],

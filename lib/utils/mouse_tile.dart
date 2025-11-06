@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class SmoothieTile extends StatelessWidget {
-  final String smoothieFlavor;
-  final String smoothiePrice;
-  final dynamic smoothieColor;
-  final String smoothieImagePath;
-  final String smoothieProvider;
+class MouseTile extends StatelessWidget {
+  final String mouseName;
+  final String mousePrice;
+  final dynamic mouseColor;
+  final String mouseImagePath;
+  final String mouseProvider;
   final VoidCallback? onAddToCart;
 
-  const SmoothieTile({
+  const MouseTile({
     super.key,
-    required this.smoothieFlavor,
-    required this.smoothiePrice,
-    this.smoothieColor,
-    required this.smoothieImagePath,
-    required this.smoothieProvider,
+    required this.mouseName,
+    required this.mousePrice,
+    this.mouseColor,
+    required this.mouseImagePath,
+    required this.mouseProvider,
     this.onAddToCart,
   });
 
@@ -24,22 +24,23 @@ class SmoothieTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: (smoothieColor is MaterialColor)
-              ? smoothieColor[50]
-              : smoothieColor,
+          color: (mouseColor is MaterialColor)
+              ? mouseColor[50]
+              : mouseColor,
           borderRadius: BorderRadius.circular(24.0),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // Precio
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: (smoothieColor is MaterialColor)
-                        ? smoothieColor[100]
-                        : smoothieColor.withOpacity(0.3),
+                    color: (mouseColor is MaterialColor)
+                        ? mouseColor[100]
+                        : mouseColor.withOpacity(0.3),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(24),
                       topRight: Radius.circular(24),
@@ -50,12 +51,12 @@ class SmoothieTile extends StatelessWidget {
                     horizontal: 18,
                   ),
                   child: Text(
-                    '\$$smoothiePrice',
+                    '\$$mousePrice',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: (smoothieColor is MaterialColor)
-                          ? smoothieColor[800]
+                      color: (mouseColor is MaterialColor)
+                          ? mouseColor[800]
                           : Colors.black,
                     ),
                   ),
@@ -63,26 +64,29 @@ class SmoothieTile extends StatelessWidget {
               ],
             ),
 
-            // imagen ajustada
+            // Imagen
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 12),
               child: Image.asset(
-                smoothieImagePath,
-                height: 100, // evita overflow
+                mouseImagePath,
+                height: 100,
                 fit: BoxFit.contain,
               ),
             ),
 
-            // nombre
+            // Nombre del ratón
             Text(
-              smoothieFlavor,
+              mouseName,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
 
-            // proveedor
-            Text(smoothieProvider, style: TextStyle(color: Colors.grey[600])),
+            // Raza o tipo
+            Text(
+              mouseProvider,
+              style: TextStyle(color: Colors.grey[600]),
+            ),
 
-            // botones
+            // Botones
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
@@ -92,7 +96,7 @@ class SmoothieTile extends StatelessWidget {
                   TextButton(
                     onPressed: onAddToCart,
                     child: const Text(
-                      'Add',
+                      'Adopt',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,

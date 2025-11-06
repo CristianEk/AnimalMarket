@@ -3,38 +3,38 @@ import 'package:donut_app/utils/cat_tile.dart';
 import 'package:donut_app/models/cart.dart';
 import 'package:donut_app/models/product.dart';
 
-class BurgerTab extends StatelessWidget {
-  BurgerTab({super.key});
+class CatTab extends StatelessWidget {
+  CatTab({super.key});
 
-  // Lista de hamburguesas disponibles
-  final List<List<dynamic>> burgersOnSale = [
+  // Lista de gatos disponibles
+  final List<List<dynamic>> catsOnSale = [
     [
-      'Cheese Burger',
-      120.0,
-      Colors.brown,
-      'lib/images/cheese_burger.png',
-      'McDonalds',
-    ],
-    [
-      'Chicken Burger',
-      110.0,
+      'Persa',
+      2500.0,
       Colors.orange,
-      'lib/images/simple_burger.png',
-      'KFC',
+      'lib/images/persa.jpg',
+      'Cat Lovers PetShop',
     ],
     [
-      'Double Beef',
-      150.0,
-      Colors.red,
-      'lib/images/tocino_burger.png',
-      'Burger King',
+      'Siames',
+      2200.0,
+      Colors.brown,
+      'lib/images/siames.jpg',
+      'Paw Friends',
     ],
     [
-      'Veggie Burger',
-      95.0,
-      Colors.green,
-      'lib/images/withfries_burger.png',
-      'Subway',
+      'Bengala',
+      2800.0,
+      Colors.yellow,
+      'lib/images/bengala.jpeg',
+      'Happy Pets',
+    ],
+    [
+      'Esfinge',
+      3000.0,
+      Colors.purple,
+      'lib/images/esfinge.jpeg',
+      'Exotic Cats MX',
     ],
   ];
 
@@ -54,29 +54,29 @@ class BurgerTab extends StatelessWidget {
             mainAxisSpacing: 12,
             childAspectRatio: aspectRatio,
           ),
-          itemCount: burgersOnSale.length,
+          itemCount: catsOnSale.length,
           itemBuilder: (context, index) {
-            final burger = burgersOnSale[index];
+            final cat = catsOnSale[index];
 
-            return BurgerTile(
-              burgerName: burger[0],
-              burgerPrice: burger[1].toString(),
-              burgerColor: burger[2],
-              burgerImagePath: burger[3],
-              burgerProvider: burger[4],
+            return CatTile(
+              catName: cat[0],
+              catPrice: cat[1].toString(),
+              catColor: cat[2],
+              catImagePath: cat[3],
+              catProvider: cat[4],
               // para manejar el botón de agregar
               onAddToCart: () {
                 final product = Product(
-                  name: burger[0],
-                  price: burger[1],
-                  imagePath: burger[3],
+                  name: cat[0],
+                  price: cat[1],
+                  imagePath: cat[3],
                 );
 
                 Cart.addItem(product);
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('${burger[0]} added to cart'),
+                    content: Text('${cat[0]} added to cart'),
                     duration: const Duration(seconds: 1),
                   ),
                 );

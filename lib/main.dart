@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import  'screens/HomePage.dart';
+import 'package:donut_app/screens/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,18 +8,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, //quita el banner de debug
-      title: 'Donut App',
+      debugShowCheckedModeBanner: false,
+      title: 'Adoption App',
       theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.pink,
       ),
-      home: const Homepage(),
+      home: const LoginPage(), // inicia en el login
     );
   }
 }
-     

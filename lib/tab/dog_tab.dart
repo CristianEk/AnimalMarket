@@ -3,38 +3,38 @@ import 'package:donut_app/utils/dog_tile.dart';
 import 'package:donut_app/models/cart.dart';
 import 'package:donut_app/models/product.dart';
 
-class DonutTab extends StatelessWidget {
-  DonutTab({super.key});
+class DogTab extends StatelessWidget {
+  DogTab({super.key});
 
-  // Lista de donas disponibles
-  final List<List<dynamic>> donutOnSale = [
+  // Lista de perros disponibles
+  final List<List<dynamic>> dogOnSale = [
     [
-      'Chocolate',
-      100.0,
+      'Golden Retriever',
+      2500.0,
+      Colors.amber,
+      'lib/images/golden_retriever.jpeg',
+      'PetWorld',
+    ],
+    [
+      'Bulldog Francés',
+      2800.0,
+      Colors.grey,
+      'lib/images/french_bulldog.jpg',
+      'PetWorld',
+    ],
+    [
+      'Husky Siberiano',
+      3000.0,
+      Colors.lightBlue,
+      'lib/images/husky.jpeg',
+      'PetWorld',
+    ],
+    [
+      'Chihuahua',
+      1500.0,
       Colors.brown,
-      'lib/images/chocolate_donut.png',
-      'Starbucks',
-    ],
-    [
-      'Strawberry',
-      100.0,
-      Colors.pink,
-      'lib/images/strawberry_donut.png',
-      'Starbucks',
-    ],
-    [
-      'Ice Cream',
-      100.0,
-      Colors.yellow,
-      'lib/images/icecream_donut.png',
-      'Starbucks',
-    ],
-    [
-      'Grape',
-      100.0,
-      Colors.purple,
-      'lib/images/grape_donut.png',
-      'Starbucks',
+      'lib/images/chihuahua.jpg',
+      'PetWorld',
     ],
   ];
 
@@ -54,29 +54,29 @@ class DonutTab extends StatelessWidget {
             mainAxisSpacing: 12,
             childAspectRatio: aspectRatio,
           ),
-          itemCount: donutOnSale.length,
+          itemCount: dogOnSale.length,
           itemBuilder: (context, index) {
-            final donut = donutOnSale[index];
+            final dog = dogOnSale[index];
 
-            return DonutTile(
-              donutFlavor: donut[0],
-              donutPrice: donut[1].toString(),
-              donutColor: donut[2],
-              donutImagePath: donut[3],
-              donutProvider: donut[4],
+            return DogTile(
+              dogName: dog[0],
+              dogPrice: dog[1].toString(),
+              dogColor: dog[2],
+              dogImagePath: dog[3],
+              dogProvider: dog[4],
               // Función para agregar al carrito
               onAddToCart: () {
                 final product = Product(
-                  name: donut[0],
-                  price: donut[1],
-                  imagePath: donut[3],
+                  name: dog[0],
+                  price: dog[1],
+                  imagePath: dog[3],
                 );
 
                 Cart.addItem(product);
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('${donut[0]} added to cart'),
+                    content: Text('${dog[0]} agregado al carrito'),
                     duration: const Duration(seconds: 1),
                   ),
                 );

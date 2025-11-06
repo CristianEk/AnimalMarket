@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class DonutTile extends StatelessWidget {
-  final String donutFlavor;
-  final String donutPrice;
-  final dynamic donutColor;
-  final String donutImagePath;
-  final String donutProvider;
+class DogTile extends StatelessWidget {
+  final String dogName;
+  final String dogPrice;
+  final dynamic dogColor;
+  final String dogImagePath;
+  final String dogProvider;
   final VoidCallback? onAddToCart;
 
-  const DonutTile({
+  const DogTile({
     super.key,
-    required this.donutFlavor,
-    required this.donutPrice,
-    this.donutColor,
-    required this.donutImagePath,
-    required this.donutProvider,
+    required this.dogName,
+    required this.dogPrice,
+    this.dogColor,
+    required this.dogImagePath,
+    required this.dogProvider,
     this.onAddToCart,
   });
 
@@ -24,7 +24,7 @@ class DonutTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: donutColor[50],
+          color: dogColor[50],
           borderRadius: BorderRadius.circular(24.0),
         ),
         child: Column(
@@ -35,7 +35,7 @@ class DonutTile extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: donutColor[100],
+                    color: dogColor[100],
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(24),
                       topRight: Radius.circular(24),
@@ -46,20 +46,20 @@ class DonutTile extends StatelessWidget {
                     horizontal: 18,
                   ),
                   child: Text(
-                    '\$$donutPrice',
+                    '\$$dogPrice',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: donutColor[800],
+                      color: dogColor[800],
                     ),
                   ),
                 ),
               ],
             ),
 
-            // ✅ Imagen con tamaño controlado para evitar overflow
+            // Imagen del perro
             SizedBox(
-              height: 120, // Ajusta a tu gusto
+              height: 120,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 36,
@@ -67,21 +67,21 @@ class DonutTile extends StatelessWidget {
                 ),
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Image.asset(donutImagePath, fit: BoxFit.contain),
+                  child: Image.asset(dogImagePath, fit: BoxFit.contain),
                 ),
               ),
             ),
 
-            // Nombre
+            // Nombre del perro
             Text(
-              donutFlavor,
+              dogName,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
 
-            // Tienda / proveedor
-            Text(donutProvider, style: TextStyle(color: Colors.grey[600])),
+            // Proveedor / tienda
+            Text(dogProvider, style: TextStyle(color: Colors.grey[600])),
 
-            // Icono favorito + botón Add
+            // Icono favorito + botón "Add"
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(

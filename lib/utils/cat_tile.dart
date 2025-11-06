@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class BurgerTile extends StatelessWidget {
-  final String burgerName;
-  final String burgerPrice;
-  final Color burgerColor;
-  final String burgerImagePath;
-  final String burgerProvider;
+class CatTile extends StatelessWidget {
+  final String catName;
+  final String catPrice;
+  final Color catColor;
+  final String catImagePath;
+  final String catProvider;
   final VoidCallback? onAddToCart;
 
-  const BurgerTile({
+  const CatTile({
     super.key,
-    required this.burgerName,
-    required this.burgerPrice,
-    required this.burgerColor,
-    required this.burgerImagePath,
-    required this.burgerProvider,
+    required this.catName,
+    required this.catPrice,
+    required this.catColor,
+    required this.catImagePath,
+    required this.catProvider,
     this.onAddToCart,
   });
 
@@ -24,7 +24,7 @@ class BurgerTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: burgerColor.withOpacity(0.1),
+          color: catColor.withOpacity(0.1),
           borderRadius: BorderRadius.circular(24.0),
         ),
         child: Column(
@@ -36,7 +36,7 @@ class BurgerTile extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: burgerColor.withOpacity(0.2),
+                    color: catColor.withOpacity(0.2),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(24),
                       topRight: Radius.circular(24),
@@ -47,11 +47,11 @@ class BurgerTile extends StatelessWidget {
                     horizontal: 18,
                   ),
                   child: Text(
-                    '\$$burgerPrice',
+                    '\$$catPrice',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: burgerColor,
+                      color: catColor,
                     ),
                   ),
                 ),
@@ -69,17 +69,17 @@ class BurgerTile extends StatelessWidget {
                 child: Center(
                   child: AspectRatio(
                     aspectRatio: 1,
-                    child: Image.asset(burgerImagePath, fit: BoxFit.contain),
+                    child: Image.asset(catImagePath, fit: BoxFit.contain),
                   ),
                 ),
               ),
             ),
 
-            // Nombre
+            // Nombre del gato
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                burgerName,
+                catName,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 16,
@@ -90,7 +90,7 @@ class BurgerTile extends StatelessWidget {
 
             // Proveedor
             Text(
-              burgerProvider,
+              catProvider,
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.grey[600], fontSize: 13),
             ),

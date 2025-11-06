@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class PizzaTile extends StatelessWidget {
-  final String pizzaFlavor;
-  final String pizzaPrice;
-  final dynamic pizzaColor;
-  final String pizzaImagePath;
-  final String pizzaProvider;
-  final VoidCallback? onAddToCart; // 👈 nuevo parámetro para conectar con el tab
+class BirdTile extends StatelessWidget {
+  final String birdName;
+  final String birdPrice;
+  final dynamic birdColor;
+  final String birdImagePath;
+  final String birdProvider;
+  final VoidCallback? onAddToCart; // 👈 permite interacción con el tab
 
-  const PizzaTile({
+  const BirdTile({
     super.key,
-    required this.pizzaFlavor,
-    required this.pizzaPrice,
-    this.pizzaColor,
-    required this.pizzaImagePath,
-    required this.pizzaProvider,
-    this.onAddToCart, // 👈 permite usar la función desde PizzaTab
+    required this.birdName,
+    required this.birdPrice,
+    this.birdColor,
+    required this.birdImagePath,
+    required this.birdProvider,
+    this.onAddToCart,
   });
 
   @override
@@ -24,7 +24,7 @@ class PizzaTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: pizzaColor[50],
+          color: birdColor[50],
           borderRadius: BorderRadius.circular(24.0),
         ),
         child: Column(
@@ -35,7 +35,7 @@ class PizzaTile extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: pizzaColor[100],
+                    color: birdColor[100],
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(24),
                       topRight: Radius.circular(24),
@@ -46,11 +46,11 @@ class PizzaTile extends StatelessWidget {
                     horizontal: 18,
                   ),
                   child: Text(
-                    '\$$pizzaPrice',
+                    '\$$birdPrice',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: pizzaColor[800],
+                      color: birdColor[800],
                     ),
                   ),
                 ),
@@ -60,12 +60,12 @@ class PizzaTile extends StatelessWidget {
             // Imagen
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 12),
-              child: Image.asset(pizzaImagePath),
+              child: Image.asset(birdImagePath),
             ),
 
-            // Nombre
+            // Nombre del ave
             Text(
-              pizzaFlavor,
+              birdName,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -74,7 +74,7 @@ class PizzaTile extends StatelessWidget {
 
             // Proveedor
             Text(
-              pizzaProvider,
+              birdProvider,
               style: TextStyle(
                 color: Colors.grey[600],
               ),
@@ -92,7 +92,7 @@ class PizzaTile extends StatelessWidget {
                         () {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content: Text('$pizzaFlavor added to cart'),
+                              content: Text('$birdName added to cart'),
                               duration: const Duration(seconds: 1),
                             ),
                           );

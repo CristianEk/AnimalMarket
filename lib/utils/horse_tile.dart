@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class PancakeTile extends StatelessWidget {
-  final String pancakeFlavor;
-  final String pancakePrice;
-  final dynamic pancakeColor;
-  final String pancakeImagePath;
-  final String pancakeProvider;
+class HorseTile extends StatelessWidget {
+  final String horseName;
+  final String horsePrice;
+  final dynamic horseColor;
+  final String horseImagePath;
+  final String horseProvider;
   final VoidCallback? onAddToCart;
 
-  const PancakeTile({
+  const HorseTile({
     super.key,
-    required this.pancakeFlavor,
-    required this.pancakePrice,
-    this.pancakeColor,
-    required this.pancakeImagePath,
-    required this.pancakeProvider,
+    required this.horseName,
+    required this.horsePrice,
+    this.horseColor,
+    required this.horseImagePath,
+    required this.horseProvider,
     this.onAddToCart,
   });
 
@@ -24,23 +24,23 @@ class PancakeTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: (pancakeColor is MaterialColor)
-              ? pancakeColor[50]
-              : pancakeColor,
+          color: (horseColor is MaterialColor)
+              ? horseColor[50]
+              : horseColor.withOpacity(0.1),
           borderRadius: BorderRadius.circular(24.0),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Precio
+            // Precio en esquina superior derecha
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: (pancakeColor is MaterialColor)
-                        ? pancakeColor[100]
-                        : pancakeColor.withOpacity(0.3),
+                    color: (horseColor is MaterialColor)
+                        ? horseColor[100]
+                        : horseColor.withOpacity(0.3),
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(24),
                       topRight: Radius.circular(24),
@@ -51,12 +51,12 @@ class PancakeTile extends StatelessWidget {
                     horizontal: 18,
                   ),
                   child: Text(
-                    '\$$pancakePrice',
+                    '\$$horsePrice',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: (pancakeColor is MaterialColor)
-                          ? pancakeColor[800]
+                      color: (horseColor is MaterialColor)
+                          ? horseColor[800]
                           : Colors.black,
                     ),
                   ),
@@ -64,26 +64,26 @@ class PancakeTile extends StatelessWidget {
               ],
             ),
 
-            // Imagen del pancake
+            // Imagen del caballo
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 12),
               child: Image.asset(
-                pancakeImagePath,
+                horseImagePath,
                 height: 100, // evita overflow
                 fit: BoxFit.contain,
               ),
             ),
 
-            // Nombre del pancake
+            // Nombre del caballo
             Text(
-              pancakeFlavor,
+              horseName,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
 
-            // Proveedor
-            Text(pancakeProvider, style: TextStyle(color: Colors.grey[600])),
+            // Proveedor o criadero
+            Text(horseProvider, style: TextStyle(color: Colors.grey[600])),
 
-            // Botones
+            // Parte inferior: icono favorito + botón Add
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
